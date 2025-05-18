@@ -1,160 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUHAMMAD USMAN CHACHAR</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
-            background: #000;
-        }
-        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .container {
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-        h1, h2, p {
-            color: #fff;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px silver;
-            animation: textGlow 0.8s ease-in-out infinite;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        p {
-            font-size: 0.85em;
-        }
-        .inline-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .inline-details div {
-            width: 33%;
-            text-align: center;
-            animation: textGlow 0.8s ease-in-out infinite;
-        }
-        .place {
-            font-size: 0.8em; /* Smaller text for Place */
-        }
-        .best-friend {
-            font-size: 0.8em; /* Smaller text for Best Friend */
-        }
-        .section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .section ul li {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 6px;
-            margin-bottom: 6px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px silver;
-            animation: textGlow 0.8s ease-in-out infinite;
-            font-size: 0.85em;
-        }
-        a {
-            color: #fff;
-            text-decoration: none;
-            text-shadow: 0 0 10px silver;
-            animation: textGlow 0.8s ease-in-out infinite;
-        }
-        a:hover {
-            color: #00ffcc;
-        }
-        .title {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 15px silver;
-            animation: textGlow 0.8s ease-in-out infinite;
-        }
-        img {
-            border-radius: 50%;
-            width: 100px; /* Smaller size for the profile picture */
-            height: 100px; /* Smaller size for the profile picture */
-            margin-bottom: 15px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        /* Animation Keyframes */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px silver, 0 0 20px silver; }
-            50% { text-shadow: 0 0 20px silver, 0 0 30px silver; }
-            100% { text-shadow: 0 0 10px silver, 0 0 20px silver; }
-        }
-    </style>
+<head> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>US MODS SIM DATABASE</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+    }
+
+    .avatar-wrapper {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 8px solid #ff0066;
+      box-shadow: 0 0 30px #ff0066;
+      background: #111;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px #00fff7;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #00fff7, #4facfe);
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 255, 247, 0.4);
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #4facfe, #00fff7);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 255, 247, 0.6);
+    }
+
+    .whatsapp-btn {
+      margin-top: 20px;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: #fff;
+    }
+
+    .whatsapp-btn:hover {
+      background: linear-gradient(90deg, #128C7E, #25D366);
+    }
+
+    .response-box {
+      background: rgba(255, 255, 255, 0.1);
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+      color: #fff;
+      text-align: left;
+      font-size: 14px;
+      box-shadow: inset 0 0 10px rgba(0, 255, 247, 0.2);
+    }
+
+    .formatted-data {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .formatted-data p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    .separator {
+      margin: 10px 0;
+      border-top: 2px solid #ff6600;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px;
+        width: 90%;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <video class="video-bg" autoplay muted loop>
-        <source src="https://BJ-Devs.serv00.net/Bjtricks.mp4?v=1727712312654" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+  <canvas id="matrix"></canvas>
 
-    <div class="container">
-        <div class="title">MUHAMMAD UAMAN CHACHAR</div>
+  <div class="container">
+    <h1>US MODS SIM DATABASE</h1>
 
-        <img src="https://i.ibb.co/kDz7bj3/20200927-140432.png" alt="Profile Picture">
-        
-        <h1><a href="https://www.facebook.com/profile.php?id=100078859791751&mibextid=ZbWKwL">BJ TRICKS 𝗛4𝗫</a></h1>
-
-        <div class="inline-details">
-            <div class="place">𝗣𝗜𝗔𝗖𝗘 : PAKISTAN</div>
-            <div>𝗔𝗚𝗘 → 18</div>
-            <div class="best-friend"><a href="https://www.facebook.com/profile.php?id=100078859791751&mibextid=ZbWKwL">𝗕𝗘𝗦𝗧 𝗙𝗥𝗜𝗘𝗡𝗗 →NOTHING🤮</a></div>
-        </div>
-
-        <div class="section">
-            <h2>𝗦𝗞𝗜𝗜𝗜𝗦 𝗔𝗡𝗗 𝗘𝗫𝗣𝗘𝗥𝗧</h2>
-            <ul>
-                <li>ᴇᴛʜIᴄᴀl ʜᴀᴄᴋIɴɢ </li>
-                <li>ᴡᴇʙ ᴍᴀᴋIɴɢ </li>
-                <li>ᴛᴇʀᴍᴜx ᴇxᴘᴇʀᴛ</li>
-                <li>ᴛᴇʀᴍᴜx ᴛᴏᴏls ᴍᴀᴋIɴɢ </li>
-                <li>ᴘʜIsʜIɴɢ ᴡᴇʙ ᴍᴀᴋIɴɢ </li>
-                <li>ᴡᴇʙ Iɴғᴏ sᴄʀᴀᴘIɴɢ </li>
-                <li>ɴᴇᴛᴡᴏʀᴋ sᴇᴄᴜʀIᴛʏ</li>
-                <li>ᴇᴛᴄ</li>
-            </ul>
-        </div>
-
-        <div class="section admins">
-            <h2>𝙐𝙎𝙈𝘼𝙉 𝙆𝙃𝘼𝙉</h2>
-            <ul>
-                <li><a href="https://www.tiktok.com/@u.s.m.a.n012?_t=ZS-8tR9mjv59lw&_r=1">IɴᴅIᴀɴ ᴄᴏᴅᴇʀ</a></li>
-                <li><a href="https://youtube.com/@usman_7016?si=Y2R5v20qEa0Q9aoI">IɴᴅIᴀɴ ᴄᴏᴜʀsᴇ</a></li>
-                <li><a href="wp03161407016">ᴘʀᴇᴍIᴜᴍ ᴄᴏᴅᴇs</a></li>
-            </ul>
-        </div>
+    <div class="avatar-wrapper">
+      <img src="https://i.ibb.co/XrpW5qtG/IMG-20250509-011121-571.jpg" alt="Profile Picture" />
     </div>
+
+    <input type="text" id="number" placeholder="Enter phone number" required />
+    <button id="fetchData">Search</button>
+
+    <a href="https://wa.me/923161407016" target="_blank">
+      <button class="whatsapp-btn">Chat on WhatsApp</button>
+    </a>
+
+    <div id="responseBox" class="response-box"></div>
+  </div>
+
+<script>
+  const fetchButton = document.getElementById("fetchData");
+  const responseBox = document.getElementById("responseBox");
+
+  fetchButton.addEventListener("click", async () => {
+    const number = document.getElementById("number").value.trim();
+    responseBox.innerHTML = '';
+
+    if (!number) {
+      alert("Please enter a valid number.");
+      return;
+    }
+
+    responseBox.innerHTML = '<p style="text-align:center;">Fetching data...</p>';
+
+    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://fam-official.serv00.net/sim/api.php?num=${number}`)}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      const apiData = JSON.parse(result.contents);
+
+      if (apiData.status === "success" && apiData.data.length > 0) {
+        let formattedData = '';
+        
+        apiData.data.forEach(user => {
+          formattedData += `
+            <div class="formatted-data">
+              <p><strong>🔹 Name:</strong> ${user.Name || "N/A"}</p>
+              <p><strong>🔹 Mobile:</strong> ${user.Mobile || "N/A"}</p>
+              <p><strong>🔹 CNIC:</strong> ${user.CNIC || "N/A"}</p>
+              <p><strong>🔹 Operator:</strong> ${user.Operator || "N/A"}</p>
+              <p><strong>🔹 Address:</strong> ${user.Address || "N/A"}</p>
+            </div>
+            <div class="separator"></div>
+          `;
+        });
+
+        responseBox.innerHTML = formattedData;
+      } else {
+        responseBox.innerHTML = `<div class="error">❌ No data found for this number</div>`;
+      }
+    } catch (error) {
+      responseBox.innerHTML = `<div class="error">❌ API Error: ${error.message}</div>`;
+    }
+  });
+</script>
+
+<!-- Matrix Effect Script -->
+<script>
+  const canvas = document.getElementById("matrix");
+  const ctx = canvas.getContext("2d");
+
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const letters = "01";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 33);
+</script>
 
 </body>
 </html>
